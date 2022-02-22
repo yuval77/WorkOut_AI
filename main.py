@@ -41,8 +41,7 @@ counter_20 = 0
 for i in range(12592):
     counter_20 += 1
     rnd = random.randint(0, len(y_data) - 1)
-    if i == 12591:
-        print(str(rnd) + " out of " + str(len(x_train)))
+    print(str(rnd) + " out of " + str(len(x_train)))
 
     if counter_20 % 20 != 0:
         x_train.append(x_data[rnd])
