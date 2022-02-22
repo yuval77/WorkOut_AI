@@ -4,7 +4,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import random
 
+
+
 crunches1, crunches2, legs90, plank, pull_ups1, pull_ups2, push_ups1, push_ups2, resting, squat1, squat2, wall_sit = exercise_data()
+
+
+
 x_data = crunches1 + crunches2 + legs90 + plank + pull_ups1 + pull_ups2 + push_ups1 + push_ups2 + resting + squat1 + squat2 + wall_sit
 y_data = []
 for i in range(len(crunches1)):
@@ -31,6 +36,8 @@ for i in range(len(squat2)):
     y_data.append(10)
 for i in range(len(wall_sit)):
     y_data.append(11)
+
+
 
 def Treysar_Array(i):
     if i == 0:
@@ -63,7 +70,6 @@ x_test = []
 y_train = []
 y_test = []
 
-
 counter_20 = 0
 for i in range(12592):
     counter_20 += 1
@@ -84,23 +90,23 @@ print(len(y_test))
 print(len(y_train))
 
 
+
 # adjusting the data:
-np_x_train = np.array(x_train)
-x_train = np_x_train / 64 - 2 #.transpose() / 64 - 2
+x_train = np.array(x_train) / 64 - 2 #.transpose() / 64 - 2
 #np_y_train = np.array(y_train)
 #y_train = np.zeros((12, 11962))
 #for i in range(11962):
 #    y_train[0][i] = np_y_train[0][i]
+y_train = np.array(y_train)
 
-np_x_test = np.array(x_test)
-x_test = np_x_test / 64 - 2 #.transpose() / 64 - 2
+x_test = np.array(x_test) / 64 - 2 #.transpose() / 64 - 2
 #np_y_test = np.array(y_test)
 #y_test = np.zeros((11, 629))
 #for i in range(629):
 #    y_test[0][i] = np_y_test[0][i]
-
-y_train = np.array(y_train)
 y_test = np.array(y_test)
+
+
 
 softmax_layer = DLLayer("Softmax 3", 12, (24,), "softmax")
 model = DLModel()
